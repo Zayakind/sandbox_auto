@@ -1,5 +1,4 @@
 from enum import Enum
-from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -29,3 +28,10 @@ class Company(BaseModel):
     company_status: CompanyStatusEnum = Field(alias="company_status")
     description: str = Field(None, alias="description")
     description_lang: CompanyDescription = Field(None, alias="description_lang")
+
+
+class User(BaseModel):
+    first_name: str = Field(alias="first_name")
+    last_name: str = Field(alias="last_name")
+    company_id: int = Field(alias="company_id")
+    user_id: int = Field(None, alias="user_id")
