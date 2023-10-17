@@ -28,3 +28,12 @@ class CompanyService:
         for company_info in response.json()["data"]:
             companies.append(Company.model_validate(company_info))
         return companies
+
+    def get_company(self, company_id: int) -> Company:
+        response = self.http_client.get(
+            endpoint=f"{self.base_route}{company_id}"
+        )
+        assert response.status_code == 200
+        company = Company.model_validate(response.json())
+
+        return company

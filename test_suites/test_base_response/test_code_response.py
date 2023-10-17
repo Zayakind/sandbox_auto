@@ -12,7 +12,13 @@ class TestResponseBase:
             ("CLOSED", 12, 3),
         ]
     )
-    def test_weather(self, company: CompanyService, status, limit, offset):
+    def test_get_status_company(
+        self,
+        company: CompanyService,
+        status: str,
+        limit: int,
+        offset: int,
+    ):
         companies = company.get_companies(
             status=status, limit=limit, offset=offset
         )
